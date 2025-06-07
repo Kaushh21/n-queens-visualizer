@@ -1,0 +1,251 @@
+:root {
+  --bg-color: #f0f4f8;
+  --primary: #0077b6;
+  --secondary: #00b4d8;
+  --accent: #f72585;
+  --text-dark: #03045e;
+  --light: #ffffff;
+}
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.header {
+  background-color: var(--primary);
+  color: var(--light);
+  text-align: center;
+  padding: 1em 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider-round {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider-round:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider-round {
+  background-color: var(--accent);
+}
+
+input:checked + .slider-round:before {
+  transform: translateX(24px);
+}
+
+.n-queen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2em 1em;
+}
+
+.inputbox {
+  width: 250px;
+}
+
+.numberbox {
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 5px;
+  border: none;
+  border-bottom: 2px solid var(--secondary);
+  background: transparent;
+  outline: none;
+}
+
+.slider-container {
+  width: 250px;
+  position: relative;
+}
+
+.slider {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb,
+.slider::-moz-range-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: #d61e7f;
+}
+
+#progress-bar {
+  height: 5px;
+  background-color: #ffd200;
+  width: 60%;
+  margin-top: -10px;
+  border-radius: 5px;
+}
+
+#speed-display {
+  text-align: center;
+  margin-top: 5px;
+  font-weight: 600;
+  color: #fa7921;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.play-button {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--accent);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.play-button:hover {
+  background-color: #c91865;
+}
+
+.queen-arrangement {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+#n-queen-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2em;
+  gap: 1.5rem;
+}
+
+#n-queen-board div {
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: background-color 0.3s;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border: 1px solid #ccc;
+  font-size: 1.2rem;
+}
+
+h4 {
+  background-color: var(--secondary);
+  color: white;
+  padding: 0.5em;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .n-queen {
+    width: 100%;
+  }
+  #n-queen-board div {
+    scale: 0.95;
+  }
+}
+
+/* Dark Theme */
+body.dark-theme {
+  --bg-color: #1e1e2f;
+  --primary: #4ecca3;
+  --secondary: #3d84a8;
+  --accent: #ff5722;
+  --text-dark: #f1f1f1;
+  --light: #1a1a2e;
+}
+
+body.dark-theme body {
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+}
+
+body.dark-theme #progress-bar {
+  background-color: #ffb200;
+}
+
+body.dark-theme .play-button {
+  background-color: var(--accent);
+}
+
+body.dark-theme .play-button:hover {
+  background-color: #e64a19;
+}
+
+body.dark-theme #n-queen-board div {
+  background-color: #2d2d44;
+}
